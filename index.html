@@ -1,86 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClipZone — Endless Shorts</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClipZone - Watch Short Videos</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="app">
-  <header class="topbar">
-    <a class="brand" href="#"><span class="play">▶</span><span>CLIP<span>ZONE</span></span></a>
-    <nav><a class="active" href="#">Home</a><a href="#channels">Channels</a><a href="#trending">Trending</a></nav>
-    <div class="search"><input placeholder="Search videos or channels..." /><span>⌕</span></div>
-    <button class="icon-btn">♧<b>3</b></button>
-    <div class="avatar">Y</div><span class="chev">⌄</span>
-  </header>
+<body class="bg-[#0d0f12] text-slate-100 font-sans overflow-hidden">
 
-  <aside class="sidebar">
-    <div class="side-main">
-      <a class="selected">⌂ <span>For You</span></a>
-      <a>♧ <span>Following</span></a>
-      <a>♡ <span>Liked Videos</span></a>
-      <a>◷ <span>Watch Later</span></a>
-    </div>
-    <div class="divider"></div>
-    <p class="side-title">EXPLORE CHANNELS</p>
-    <div id="channelList" class="channel-list"></div>
-    <button class="show-more" id="showMore">⌄ &nbsp; Show Less <span>⌃</span></button>
-    <div class="join-card"><h3>Join ClipZone</h3><p>Create an account to like videos, follow channels and more.</p><button>Sign Up <span>🚀</span></button></div>
-    <div class="side-brand"><span class="play small">▶</span> CLIP<span>ZONE</span></div>
-  </aside>
+  <div class="flex h-screen w-screen">
+    
+    <!-- 1. LEFT SIDEBAR -->
+    <aside class="w-64 flex-shrink-0 bg-[#12151b] border-r border-slate-800/80 flex flex-col justify-between overflow-y-auto">
+      <div>
+        <!-- Navigation -->
+        <div class="p-4 space-y-1.5 border-b border-slate-800/60">
+          <button class="flex items-center gap-3.5 w-full px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-rose-600/20 to-pink-600/10 text-rose-500 font-semibold text-sm">
+            <i data-lucide="compass" class="w-4 h-4"></i> For You
+          </button>
+          <button class="flex items-center gap-3.5 w-full px-3.5 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/50 font-medium text-sm transition">
+            <i data-lucide="user-check" class="w-4 h-4"></i> Following
+          </button>
+          <button class="flex items-center gap-3.5 w-full px-3.5 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/50 font-medium text-sm transition">
+            <i data-lucide="thumbs-up" class="w-4 h-4"></i> Liked Videos
+          </button>
+          <button class="flex items-center gap-3.5 w-full px-3.5 py-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/50 font-medium text-sm transition">
+            <i data-lucide="clock" class="w-4 h-4"></i> Watch Later
+          </button>
+        </div>
 
-  <main class="content">
-    <section id="channels">
-      <div class="section-head"><h2>Top Channels</h2><button>View all　›</button></div>
-      <div id="topChannels" class="top-channels"></div>
-    </section>
-
-    <section class="feature-grid">
-      <article class="featured">
-        <div class="video-photo"></div>
-        <div class="live">▣ LIVE</div><button class="dots">•••</button>
-        <div class="creator"><div class="avatar">S</div><b>@skate.life</b><span class="verified">✓</span><button>Follow</button></div>
-        <h1>Sunset sessions hit different 🌅🛹</h1>
-        <p>#skateboarding #skatelife #sunsets</p>
-        <div class="sound">♫　Original Sound – skate.life</div>
-        <div class="progress"><span></span></div><small class="time">00:12 / 00:28　⛶</small>
-      </article>
-
-      <aside class="upnext">
-        <div class="up-head"><h3>Up Next</h3><label>Autoplay <i></i></label></div>
-        <div id="upNext"></div>
-        <div class="download"><h3>Download ClipZone</h3><p>Watch videos anytime, anywhere.</p><div><button>▶ Google Play</button><button>● App Store</button></div></div>
-      </aside>
-
-      <div class="actions">
-        <button class="action follow"><span>✦</span><b>Follow</b></button>
-        <button class="action like" data-count="12.4K"><span>♥</span><b>12.4K</b></button>
-        <button class="action comment"><span>✹</span><b>320</b></button>
-        <button class="action share"><span>➤</span><b>512</b></button>
-        <button class="action save"><span>▮</span><b>Save</b></button>
-        <button class="round">⌃</button><button class="round">⌄</button>
+        <!-- Channels -->
+        <div class="p-4 space-y-1">
+          <span class="text-[11px] font-bold text-slate-500 tracking-wider uppercase px-3">Channels</span>
+          <button class="flex items-center gap-3.5 w-full px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/40 text-sm font-medium transition group">
+            <i data-lucide="flame" class="w-4 h-4 text-amber-500"></i> Trending Now
+          </button>
+          <button class="flex items-center gap-3.5 w-full px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/40 text-sm font-medium transition group">
+            <i data-lucide="laugh" class="w-4 h-4 text-yellow-400"></i> Comedy & Memes
+          </button>
+          <button class="flex items-center gap-3.5 w-full px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/40 text-sm font-medium transition group">
+            <i data-lucide="music" class="w-4 h-4 text-pink-400"></i> Music
+          </button>
+          <button class="flex items-center gap-3.5 w-full px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/40 text-sm font-medium transition group">
+            <i data-lucide="tv" class="w-4 h-4 text-emerald-400"></i> Football
+          </button>
+          <button class="flex items-center gap-3.5 w-full px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/40 text-sm font-medium transition group">
+            <i data-lucide="gamepad-2" class="w-4 h-4 text-indigo-400"></i> Gaming
+          </button>
+          <button class="flex items-center gap-3.5 w-full px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/40 text-sm font-medium transition group">
+            <i data-lucide="globe-2" class="w-4 h-4 text-green-500"></i> African Vibes
+          </button>
+        </div>
       </div>
-    </section>
 
-    <section>
-      <div class="section-head"><h2>Continue Watching</h2><button>View all　›</button></div>
-      <div id="continue" class="wide-row"></div>
-    </section>
+      <!-- CTA Footer -->
+      <div class="p-4 border-t border-slate-800/60">
+        <div class="p-3.5 rounded-2xl bg-gradient-to-b from-slate-800/40 to-slate-900/60 border border-slate-800 text-center">
+          <h4 class="text-sm font-bold text-white mb-1">Join ClipZone</h4>
+          <p class="text-xs text-slate-400 mb-3">Create an account to like, follow, and save videos.</p>
+          <button class="w-full py-2 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-bold rounded-xl shadow-lg shadow-rose-600/20 transition">
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </aside>
 
-    <section id="trending">
-      <div class="section-head"><h2>Trending This Week <span class="pink">〽</span></h2><button>View all　›</button></div>
-      <div id="trendingRow" class="trend-row"></div>
-    </section>
+    <!-- 2. MAIN CONTENT -->
+    <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+      
+      <!-- Top Navbar -->
+      <header class="h-16 bg-[#12151b]/95 backdrop-blur border-b border-slate-800/80 px-6 flex items-center justify-between gap-6 z-10">
+        <div class="flex items-center gap-8">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-rose-600 to-pink-500 flex items-center justify-center font-black text-white text-lg">
+              ▶
+            </div>
+            <span class="font-extrabold text-lg tracking-tight bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+              CLIP<span class="text-rose-500">ZONE</span>
+            </span>
+          </div>
 
-    <section class="cta"><div class="cta-icon">▶</div><div><h2>Endless shorts. Endless entertainment.</h2><p>Join ClipZone and never miss the fun.</p></div><button>Get Started Free</button></section>
-    <footer><a class="brand mini"><span class="play small">▶</span><span>CLIP<span>ZONE</span></span></a><div><a>About</a><a>Privacy</a><a>Terms</a><a>Contact</a></div><p>© 2026 ClipZone. All rights reserved.</p><div>◎　♪　▣　f</div></footer>
-  </main>
-</div>
-<script src="script.js"></script>
+          <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="#" class="text-white hover:text-rose-400 transition">Home</a>
+            <a href="#" class="text-slate-400 hover:text-white transition">Channels</a>
+            <a href="#" class="text-slate-400 hover:text-white transition">Trending</a>
+          </nav>
+        </div>
+
+        <!-- Search Input -->
+        <div class="flex-1 max-w-lg relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input
+            type="text"
+            placeholder="Search videos, creators, tags..."
+            class="w-full bg-[#181c24] text-sm text-slate-200 pl-10 pr-4 py-2 rounded-xl border border-slate-700/60 focus:outline-none focus:border-rose-500 transition"
+          />
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button class="p-2 rounded-xl bg-slate-800/60 text-slate-400 hover:text-white transition">
+            <i data-lucide="sun" class="w-4 h-4"></i>
+          </button>
+          <button class="px-5 py-2 bg-gradient-to-r from-rose-600 to-pink-600 text-white text-sm font-semibold rounded-xl transition">
+            Login
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Video Container -->
+      <main class="flex-1 overflow-y-auto px-8 py-6 space-y-8">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <h3 class="font-bold text-lg text-white">For You</h3>
+              <span class="text-xs bg-rose-500/20 text-rose-400 font-semibold px-2 py-0.5 rounded-full border border-rose-500/30">
+                Daily Picks
+              </span>
+            </div>
+          </div>
+
+          <!-- Video Grid Container -->
+          <div id="video-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <!-- Rendered dynamically by script.js -->
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
-  </html>
+</html>
