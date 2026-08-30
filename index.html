@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClipZone — Endless Shorts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <a class="brand" href="#"><span class="play">▶</span><span>CLIP<span>ZONE</span></span></a>
+    <nav><a class="active" href="#">Home</a><a href="#channels">Channels</a><a href="#trending">Trending</a></nav>
+    <div class="search"><input placeholder="Search videos or channels..." /><span>⌕</span></div>
+    <button class="icon-btn">♧<b>3</b></button>
+    <div class="avatar">Y</div><span class="chev">⌄</span>
+  </header>
+
+  <aside class="sidebar">
+    <div class="side-main">
+      <a class="selected">⌂ <span>For You</span></a>
+      <a>♧ <span>Following</span></a>
+      <a>♡ <span>Liked Videos</span></a>
+      <a>◷ <span>Watch Later</span></a>
+    </div>
+    <div class="divider"></div>
+    <p class="side-title">EXPLORE CHANNELS</p>
+    <div id="channelList" class="channel-list"></div>
+    <button class="show-more" id="showMore">⌄ &nbsp; Show Less <span>⌃</span></button>
+    <div class="join-card"><h3>Join ClipZone</h3><p>Create an account to like videos, follow channels and more.</p><button>Sign Up <span>🚀</span></button></div>
+    <div class="side-brand"><span class="play small">▶</span> CLIP<span>ZONE</span></div>
+  </aside>
+
+  <main class="content">
+    <section id="channels">
+      <div class="section-head"><h2>Top Channels</h2><button>View all　›</button></div>
+      <div id="topChannels" class="top-channels"></div>
+    </section>
+
+    <section class="feature-grid">
+      <article class="featured">
+        <div class="video-photo"></div>
+        <div class="live">▣ LIVE</div><button class="dots">•••</button>
+        <div class="creator"><div class="avatar">S</div><b>@skate.life</b><span class="verified">✓</span><button>Follow</button></div>
+        <h1>Sunset sessions hit different 🌅🛹</h1>
+        <p>#skateboarding #skatelife #sunsets</p>
+        <div class="sound">♫　Original Sound – skate.life</div>
+        <div class="progress"><span></span></div><small class="time">00:12 / 00:28　⛶</small>
+      </article>
+
+      <aside class="upnext">
+        <div class="up-head"><h3>Up Next</h3><label>Autoplay <i></i></label></div>
+        <div id="upNext"></div>
+        <div class="download"><h3>Download ClipZone</h3><p>Watch videos anytime, anywhere.</p><div><button>▶ Google Play</button><button>● App Store</button></div></div>
+      </aside>
+
+      <div class="actions">
+        <button class="action follow"><span>✦</span><b>Follow</b></button>
+        <button class="action like" data-count="12.4K"><span>♥</span><b>12.4K</b></button>
+        <button class="action comment"><span>✹</span><b>320</b></button>
+        <button class="action share"><span>➤</span><b>512</b></button>
+        <button class="action save"><span>▮</span><b>Save</b></button>
+        <button class="round">⌃</button><button class="round">⌄</button>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Continue Watching</h2><button>View all　›</button></div>
+      <div id="continue" class="wide-row"></div>
+    </section>
+
+    <section id="trending">
+      <div class="section-head"><h2>Trending This Week <span class="pink">〽</span></h2><button>View all　›</button></div>
+      <div id="trendingRow" class="trend-row"></div>
+    </section>
+
+    <section class="cta"><div class="cta-icon">▶</div><div><h2>Endless shorts. Endless entertainment.</h2><p>Join ClipZone and never miss the fun.</p></div><button>Get Started Free</button></section>
+    <footer><a class="brand mini"><span class="play small">▶</span><span>CLIP<span>ZONE</span></span></a><div><a>About</a><a>Privacy</a><a>Terms</a><a>Contact</a></div><p>© 2026 ClipZone. All rights reserved.</p><div>◎　♪　▣　f</div></footer>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+  </html>
